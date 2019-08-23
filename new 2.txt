@@ -1,2 +1,0 @@
-error: chmod: changing permissions of '/var/run/docker.sock': Operation not permitted
-sol: chmod 777 /var/run/docker.sock
