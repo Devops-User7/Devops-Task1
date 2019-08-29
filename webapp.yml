@@ -1,5 +1,5 @@
 ---
-- hosts: qa
+- hosts: dev1
   tasks:
  #  - name: pull docker image from registry
  #    raw: docker pull vijayv7/cicd:2019.3
