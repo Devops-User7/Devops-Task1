@@ -15,7 +15,8 @@
  #   raw: docker run -dti --name webapp -p 80:80 vijayv7/cicd:2019.3 /bin/bash
  
    - name: run docker-compose file to bring down webapp
-     raw: docker-compose -f /tmp/webapp-nginx-compose.yml
+     raw: docker-compose -f /tmp/webapp-nginx-compose.yml down
+     ignore_errors: true
      
    - name: run docker-compose file to bring up webapp
      raw: docker-compose -f /tmp/webapp-nginx-compose.yml up -d
