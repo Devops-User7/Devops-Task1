@@ -1,7 +1,6 @@
 ---
  - hosts: dev1
    tasks:
-     
    - name: copy nginx compose file into target server
      copy: src=webapp-nginx-compose.yml dest=/tmp
      
