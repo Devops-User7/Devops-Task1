@@ -1,0 +1,25 @@
+---
+- hosts: qa
+  tasks:
+ #  - name: pull docker image from registry
+ #    raw: docker pull vijayv7/cicd:2019.3
+     
+ #  - name: remove container if already exists
+ #   raw: docker rm -f webapp
+ #    ignore_errors: true
+     
+   - name: copy nginx compose file into target server
+     copy: src=webapp-nginx.yml dest=/tmp
+     
+ #  -name: create container for webapp
+ #   raw: docker run -dti --name myapp -p 80:80 vijayv7/cicd:2019.3 /bin/bash
+ 
+   - name: run docker-compose file to bring down webapp
+     raw: docker-compose -f /tmp/webapp-nginx.yml
+     
+   - name: run docker-compose file to bring up webapp
+     raw: docker-compose -f /tmp/webapp-nginx.yml up -dest
+     
+   - name: start nginx service from docker hosts
+     raw: docker exec -it myapp sh -c "service nginx start"
+     ignore_errors: true
